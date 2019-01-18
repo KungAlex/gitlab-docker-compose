@@ -14,6 +14,5 @@
       src: docker-compose.j2
       dest: /home/{{ user_name }}/docker-compose.yml
 
-- name: 'docker-compose up'
-  become: yes
-  shell: docker-compose up
+- name: 'docker-compose pull'
+  shell: docker-compose pull
