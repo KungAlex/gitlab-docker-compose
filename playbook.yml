@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: yes
+  become_user: root
+
+  roles:
+    - kungalex.docker-role
+
+  tasks:
+    - include: tasks/main.yml

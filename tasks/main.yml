@@ -1,2 +1,19 @@
 ---
 # tasks file for gitlab-docker-compose
+-
+- name: 'Add user to docker group'
+  become: yes
+  user:
+    name: "{{ user_name }}"
+    shell: /bin/bash
+    groups: docker
+    append: yes
+
+- name: 'create docker-compose file from template'
+  template:
+      src: docker-compose.j2
+      dest: /home/{{ user_name }}/docker-compose.yml
+
+- name: 'docker-compose up'
+  become: yes
+  shell: docker-compose up

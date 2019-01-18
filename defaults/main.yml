@@ -1,2 +1,14 @@
 ---
 # defaults file for gitlab-docker-compose
+
+user_name: vagrant
+host_name: git.micronodes.io
+
+gitlab_version: gitlab-ee
+gitlab_docker_tag: latest
+gitlab_email_from: no-reply@git.micronodes.io
+gitlab_smtp_address: smtp.gmail.com
+gitlab_smtp_user_name: info@micronodes.io
+gitlab_smtp_password: changeme
+gitlab_smtp_domain: smtp.gmail.com
+

@@ -1,0 +1,48 @@
+####################################
+### Docker Compose for GitLab-ee ###
+####################################
+
+{{ ansible_managed | comment }}
+
+
+gitlab:
+  image: 'gitlab/{{ gitlab_version }}:{{ gitlab_docker_tag }}'
+  restart: unless-stopped
+  hostname: {{ host_name }}
+  environment:
+    GITLAB_OMNIBUS_CONFIG: |
+      external_url 'https://{{ host_name }}'
+      registry_external_url 'https://{{ host_name }}:4567'
+      gitlab_rails['registry_enabled'] = true
+      gitlab_rails['gitlab_shell_ssh_port'] = 766
+      gitlab_rails['registry_host'] = "{{ host_name }}"
+      gitlab_rails['registry_port'] = "4567"
+      gitlab_rails['registry_path'] = "/var/opt/gitlab/gitlab-rails/shared/registry"
+      #gitlab_rails['backup_keep_time'] = 259200
+      #gitlab_rails['smtp_enable'] = true
+      #gitlab_rails['smtp_address'] = "{{ smtp_address }}"
+      #gitlab_rails['smtp_port'] = 587
+      #gitlab_rails['smtp_user_name'] = "{{ smtp_user_name }}"
+      #gitlab_rails['smtp_password'] = "{{ smtp_password }}
+      #gitlab_rails['smtp_domain'] = "{{ smtp_domain }}"
+      #gitlab_rails['smtp_authentication'] = "login"
+      #gitlab_rails['smtp_enable_starttls_auto'] = true
+      #gitlab_rails['smtp_tls'] = false
+      #gitlab_rails['smtp_openssl_verify_mode'] = 'peer'
+      #gitlab_rails['gitlab_email_from'] = '{{ gitlab_email_from }}'
+      #prometheus['enable'] = true
+      #prometheus['listen_address'] = ':9090'
+      #gitlab_rails['omniauth_providers'] = [{"name" => "google_oauth2", "app_id" => "xxx", "app_secret" => "xxx", "args" => { "access_type" => "offline", "approval_prompt" => '' }}]
+
+
+  ports:
+    - '766:766'
+    - '80:80'
+    - '443:443'
+    - '4567:4567'
+    #- '9090:9090'
+
+  volumes:
+    - '/srv/gitlab/config:/etc/gitlab'
+    - '/srv/gitlab/logs:/var/log/gitlab'
+    - '/srv/gitlab/data:/var/opt/gitlab'
