@@ -1,7 +1,7 @@
-Role Name
-=========
+ kungalex.gitlab-docker-compose 
+===============================
 
-A brief description of the role goes here.
+Install Gitlab CE/EE as Docker-Compose with Omnibus configuration
 
 Requirements
 ------------
@@ -16,7 +16,8 @@ A description of the settable variables for this role should go here, including 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+      roles:
+         - { role: kungalex.docker-role }
 
 Example Playbook
 ----------------
@@ -26,6 +27,14 @@ Including an example of how to use your role (for instance, with variables passe
     - hosts: servers
       roles:
          - { role: kungalex.gitlab-docker-compose, host_name: git.example.com }
+
+
+
+Test Local
+----------
+    vargrant up
+    vargrant provision
+    
 
 License
 -------
