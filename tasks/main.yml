@@ -15,6 +15,6 @@
       dest: /home/{{ user_name }}/docker-compose.yml
 
 - name: 'docker-compose pull'
-  shell: docker-compose pull
+  shell: docker-compose -f /home/{{ user_name }}/docker-compose.yml pull
 
-# TODO add cronjob and backup / restore / update scripts
+# TODO add cronjob and backup / restore / update / systemd scripts
