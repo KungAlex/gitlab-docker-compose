@@ -22,13 +22,12 @@ install:
 script:
   # Install dependencies.
   - ansible-galaxy install kungalex.docker-role
-  - ansible-galaxy list kungalex.docker-role
 
   # Check the role/playbook's syntax.
-  #- ansible-playbook -i tests/inventory tests/test.yml --syntax-check
+  - ansible-playbook -i tests/inventory tests/test.yml --syntax-check
 
   # Run the role/playbook with ansible-playbook.
-  #- ansible-playbook -i tests/inventory tests/test.yml --connection=local --become
+  - ansible-playbook -i tests/inventory tests/test.yml --connection=local --become
 
 
 notifications:
