@@ -20,6 +20,9 @@ install:
   - pip install ansible
 
 script:
+  # Install dependencies.
+  - ansible-galaxy install kungalex.docker-role
+
   # Check the role/playbook's syntax.
   - ansible-playbook -i tests/inventory tests/test.yml --syntax-check
 
