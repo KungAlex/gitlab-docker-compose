@@ -16,3 +16,5 @@
 
 - name: 'docker-compose pull'
   shell: docker-compose pull
+
+# TODO add cronjob and backup / restore / update scripts
