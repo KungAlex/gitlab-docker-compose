@@ -11,7 +11,7 @@
 
 - name: 'create docker-compose file from template'
   template:
-      src: docker-compose.j2
+      src: ../templates/docker-compose.j2
       dest: /home/{{ user_name }}/docker-compose.yml
 
 - name: 'docker-compose pull'
