@@ -1,4 +1,7 @@
- kungalex.gitlab-docker-compose 
+ [![Build Status](https://travis-ci.org/KungAlex/gitlab-docker-compose.svg?branch=master)](https://travis-ci.org/KungAlex/gitlab-docker-compose)
+
+ 
+gitlab-docker-compose 
 ===============================
 
 Install Gitlab CE/EE as Docker-Compose with Omnibus configuration
